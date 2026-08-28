@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Smart Media Downloader</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+
+  <main class="app">
+
+    <!-- HEADER -->
+
+    <section class="hero">
+
+      <div class="logo">
+        🎬
+      </div>
+
+      <div>
+        <h1>
+          Smart Media
+          <span>Downloader</span>
+        </h1>
+
+        <p>
+          Download videos and extract audio quickly.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- DOWNLOAD CARD -->
+
+    <section class="download-card">
+
+      <div class="card-header">
+
+        <div>
+          <h2>Download Media</h2>
+
+          <p>
+            Paste a video URL below
+          </p>
+        </div>
+
+        <div class="status-badge">
+          <span></span>
+          Ready
+        </div>
+
+      </div>
+
+
+      <!-- URL -->
+
+      <div class="input-wrapper">
+
+        <span>🔗</span>
+
+        <input
+          id="url"
+          type="text"
+          placeholder="Paste YouTube or video URL..."
+        >
+
+        <button
+          class="clear-btn"
+          onclick="document.getElementById('url').value=''"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="button-row">
+
+        <button
+          id="downloadBtn"
+          class="download-btn"
+          onclick="startDownload()"
+        >
+          ⬇️ Download Video
+        </button>
+
+
+        <button
+          id="audioBtn"
+          class="audio-btn"
+          onclick="startAudioDownload()"
+        >
+          🎵 Extract Audio
+        </button>
+
+      </div>
+
+
+      <!-- STOP -->
+
+      <button
+        id="stopBtn"
+        class="stop-btn"
+        onclick="stopDownload()"
+        style="display:none"
+      >
+        ⛔ Stop Download
+      </button>
+
+
+      <!-- STATUS -->
+
+      <div class="download-status">
+
+        <div class="status-line">
+
+          <span id="status">
+            Ready to download
+          </span>
+
+          <span id="progressText">
+            0%
+          </span>
+
+        </div>
+
+
+        <div class="progress-container">
+
+          <div
+            id="bar"
+            class="progress-bar"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FEATURES -->
+
+      <div class="features">
+
+        <div class="feature">
+          <span>⚡</span>
+
+          <div>
+            <strong>Fast</strong>
+            <small>Quick downloads</small>
+          </div>
+        </div>
+
+
+        <div class="feature">
+          <span>🎵</span>
+
+          <div>
+            <strong>Audio</strong>
+            <small>MP3 extraction</small>
+          </div>
+        </div>
+
+
+        <div class="feature">
+          <span>⛔</span>
+
+          <div>
+            <strong>Control</strong>
+            <small>Stop anytime</small>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <p class="footer">
+      Smart Media Downloader • Built with Node.js
+    </p>
+
+  </main>
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
