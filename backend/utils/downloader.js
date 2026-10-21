@@ -12,20 +12,18 @@ const downloadsDir = path.join(
   __dirname,
   "../downloads"
 );
-const { spawn } = require("child_process");
-const fs = require("fs");
-const path = require("path");
 
-const ytdlp = path.join(
-  __dirname,
-  "../node_modules/youtube-dl-exec/bin",
-  process.platform === "win32" ? "yt-dlp.exe" : "yt-dlp"
-);
 
-const downloadsDir = path.join(
-  __dirname,
-  "../downloads"
-);
+const versionCheck = spawn(ytdlp, ["--version"]);
+
+versionCheck.stdout.on("data", (data) => {
+  console.log("yt-dlp version:", data.toString().trim());
+});
+
+versionCheck.stderr.on("data", (data) => {
+  console.error("yt-dlp version check:", data.toString());
+});
+
 
 // Create downloads folder if it doesn't exist
 if (!fs.existsSync(downloadsDir)) {
