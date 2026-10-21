@@ -284,22 +284,9 @@ function startDownload(url, filename, type, onProgress) {
     );
 
 
-    if (child.pid) {
-
-      spawn(
-        "taskkill",
-        [
-          "/pid",
-          String(child.pid),
-          "/T",
-          "/F"
-        ],
-        {
-          windowsHide: true
-        }
-      );
-
-    }
+    if (child.pid && child.exitCode === null) {
+  child.kill("SIGTERM");
+}
 
   };
 
