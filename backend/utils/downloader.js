@@ -4,7 +4,8 @@ const path = require("path");
 
 const ytdlp = path.join(
   __dirname,
-  "../node_modules/youtube-dl-exec/bin/yt-dlp.exe"
+  "../node_modules/youtube-dl-exec/bin",
+  process.platform === "win32" ? "yt-dlp.exe" : "yt-dlp"
 );
 
 const downloadsDir = path.join(
